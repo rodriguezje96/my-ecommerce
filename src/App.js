@@ -1,7 +1,7 @@
-import logo from './logo.svg';
-import './App.css';
+import './style.css';
 import Navbar from './components/NavBar.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { ItemListContainer } from './components/ItemListContainer';
 
 
 function App() {
@@ -10,9 +10,10 @@ function App() {
       <header className="App-header">
         <Navbar></Navbar>
         <br />
-        <p>
-          José Rodríguez. Segundo desafío de React.
-        </p>
+        <ItemListContainer titulo="Bienvenido" content="Acá vas a encontrar nuestros productos destacados"></ItemListContainer>
+        <footer>
+          José Rodríguez. Tercer desafío de React.
+        </footer>
       </header>
     </div>
   );

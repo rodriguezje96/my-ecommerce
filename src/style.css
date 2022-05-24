@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+Navbar {
+  margin: 1%;
+}
+
+app {
+  background-color: rgb(228, 227, 227);
+}
+
+a  {
+  color: rgb(255, 255, 255)!important;
+  font-size: 1.2rem;
+}
+
+a:hover {
+  color: rgb(93, 44, 133)!important;
+  font-size: 1.4rem;
+}
+
+footer {
+  background-color: rgb(0, 0, 0);
+  padding: 1%;
+  text-align: center;
+  color: rgb(255, 255, 255);
+} 
