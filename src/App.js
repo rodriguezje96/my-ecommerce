@@ -2,7 +2,7 @@ import './style.css';
 import Navbar from './components/NavBar.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ItemListContainer } from './components/ItemListContainer';
-
+import {Counter} from './components/ItemCount';
 
 function App() {
   return (
@@ -11,6 +11,9 @@ function App() {
         <Navbar></Navbar>
         <br />
         <ItemListContainer titulo="Bienvenido" content="Acá vas a encontrar nuestros productos destacados"></ItemListContainer>
+        <br />
+        <Counter></Counter>
+        <br />
         <footer>
           José Rodríguez. Tercer desafío de React.
         </footer>

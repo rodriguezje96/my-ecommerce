@@ -21,6 +21,12 @@ a:hover {
   font-size: 1.4rem;
 }
 
+.contador {
+flex-direction: row;
+display: flex;
+gap: 1%;
+}
+
 footer {
   background-color: rgb(0, 0, 0);
   padding: 1%;
