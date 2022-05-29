@@ -15,7 +15,7 @@ function App() {
         <Counter></Counter>
         <br />
         <footer>
-          José Rodríguez. Cuarto desafío de React.
+          José Rodríguez. Quinto desafío de React.
         </footer>
       </header>
     </div>
