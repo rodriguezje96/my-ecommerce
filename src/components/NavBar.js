@@ -1,6 +1,7 @@
-import 'bootstrap/dist/css/bootstrap.min.css';
-import  CartWidget from './CartWidget';
+import CartWidget from './CartWidget';
 import '../style.css';
+import {Link} from 'react-router-dom';
+
 
 const NavBar = () => {
     return (
@@ -11,14 +12,17 @@ const NavBar = () => {
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Remeras</a>
+                            <Link to="/" class="nav-link">Home</Link>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Hoodies</a>
+                            <Link to="/Categoria/Remeras" className="nav-link">Remeras</Link>
+                        </li>
+                        <li class="nav-item">
+                            <Link to="/Categoria/Hoodies" className="nav-link">Hoodies</Link>
                         </li> <li class="nav-item">
-                            <a class="nav-link" href="#">Shorts</a>
+                            <Link to="/Categoria/Shorts" class="nav-link">Shorts</Link>
                         </li> <li class="nav-item">
-                            <a class="nav-link" href="#">Contacto</a>
+                            <Link to="/Contacto" className="nav-link">Contacto</Link>
                         </li>
                     </ul>
                 </div>

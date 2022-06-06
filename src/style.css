@@ -11,12 +11,12 @@ app {
   background-color: rgb(228, 227, 227);
 }
 
-a  {
+.nav-link  {
   color: rgb(255, 255, 255)!important;
   font-size: 1.2rem;
 }
 
-a:hover {
+.nav-link:hover {
   color: rgb(93, 44, 133)!important;
   font-size: 1.4rem;
 }

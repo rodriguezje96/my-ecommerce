@@ -6,7 +6,7 @@ export const Item = ({ item }) => {
                 <div class="card-body">
                     <h5 class="card-title">{item.nombre}</h5>
                     <p class="card-text">Precio: {item.precio}</p>
-                    <a href="#" class="btn btn-dark">Sumar al carrito</a>
+                    <a href="#" class="btn btn-dark">Ver más</a>
                 </div>
             </div>
         </div>
