@@ -17,7 +17,7 @@ export const Counter = () => {
     }
     return (
         <div className="container">
-            <h3>Esto es un contador</h3>
+            <h3>Unidades</h3>
             <div className="container contador">
                 <button className="btn btn-dark col-1 " onClick={incrementar}>+</button>
                 <p className="">{contador}</p>

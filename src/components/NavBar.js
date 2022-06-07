@@ -6,21 +6,21 @@ import {Link} from 'react-router-dom';
 const NavBar = () => {
     return (
 
-        <nav class="navbar navbar-expand-lg bg-black">
-            <div class="container-fluid">
+        <nav className="navbar navbar-expand-lg bg-black">
+            <div className="container-fluid">
                 <CartWidget></CartWidget>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <div className="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <Link to="/" class="nav-link">Home</Link>
+                            <Link to="/" className="nav-link">Home</Link>
                         </li>
                         <li class="nav-item">
-                            <Link to="/Categoria/Remeras" className="nav-link">Remeras</Link>
+                            <Link to="/Productos/remeras" className="nav-link">Remeras</Link>
                         </li>
                         <li class="nav-item">
-                            <Link to="/Categoria/Hoodies" className="nav-link">Hoodies</Link>
+                            <Link to="/Productos/hoodies" className="nav-link">Hoodies</Link>
                         </li> <li class="nav-item">
-                            <Link to="/Categoria/Shorts" class="nav-link">Shorts</Link>
+                            <Link to="/Productos/shorts" class="nav-link">Shorts</Link>
                         </li> <li class="nav-item">
                             <Link to="/Contacto" className="nav-link">Contacto</Link>
                         </li>

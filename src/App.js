@@ -2,10 +2,10 @@ import './style.css';
 import Navbar from './components/NavBar.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { ItemListContainer } from './components/ItemListContainer';
-import { Counter } from './components/ItemCount';
+import { ItemDetailContainer } from './components/ItemDetailsContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Contacto from './components/Contacto/Contacto.js';
-import Error from './components/Error/Error.js';
+import { Error } from './components/Error/Error.js';
+import { Contacto } from './components/Contacto/Contacto.js';
 
 
 
@@ -19,13 +19,13 @@ function App() {
           <Routes>
             <Route path="/" element={<ItemListContainer></ItemListContainer>}></Route>
             <Route path="/Productos/:categoria" element={<ItemListContainer></ItemListContainer>}></Route>
+            <Route path="/item/:itemId" element={<ItemDetailContainer></ItemDetailContainer>}></Route>
             <Route path="/Contacto" element={<Contacto></Contacto>}></Route>
             <Route path="*" element={<Error></Error>}></Route>
           </Routes>
-          <Counter></Counter>
           <br />
           <footer>
-            José Rodríguez. Quinto desafío de React.
+            José Rodríguez. Primera entrega de React.
           </footer>
         </header>
       </div>

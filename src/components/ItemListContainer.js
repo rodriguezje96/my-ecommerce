@@ -36,12 +36,12 @@ export const ItemListContainer = () => {
             .catch(err => {
                 console.log('ERROR', err)
             });
-    }, [])
+    }, [categoria])
 
 
 
     return (
-        <div>
+        <div className="row">
             <ItemList items={items}></ItemList>
         </div>
     )
