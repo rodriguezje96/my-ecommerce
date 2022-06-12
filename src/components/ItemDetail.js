@@ -1,8 +1,18 @@
 import { Counter } from '../components/ItemCount';
+import { useState } from 'react';
 
 
 export const ItemDetail = ({ item }) => {
 
+    const [cantidad, setCantidad] = useState(1);
+
+    const handleAgregar = () => {
+       const itemToCart = {
+            ...item,
+           cantidad
+        }
+        console.log(itemToCart);
+    }
 
     return (
         <div>
@@ -15,7 +25,7 @@ export const ItemDetail = ({ item }) => {
                     </div>
                 </div>
             </div>
-            <Counter></Counter>
+            <Counter max={item?.stock} contador={cantidad} setContador={setCantidad} handleAgregar={handleAgregar}></Counter>
         </div>
     )
 }

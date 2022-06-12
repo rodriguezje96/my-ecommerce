@@ -1,11 +1,12 @@
 
-export const Productos = [ 
+export const Productos = [
     {
         id: 1,
         nombre: 'Hoodie Slipknot',
         precio: '$6000',
         categoria: 'hoodies',
         img: 'https://github.com/rodriguezje96/my-ecommerce/blob/master/src/assets/img/productos/buzo-slipknot.jpg?raw=true',
+        stock: '10'
     },
     {
         id: 2,
@@ -13,6 +14,7 @@ export const Productos = [
         precio: '$6000',
         categoria: 'hoodies',
         img: 'https://github.com/rodriguezje96/my-ecommerce/blob/master/src/assets/img/productos/buzo-mayhem.jpg?raw=true',
+        stock: '15'
     },
     {
         id: 3,
@@ -20,6 +22,7 @@ export const Productos = [
         precio: '$2500',
         categoria: 'remeras',
         img: 'https://github.com/rodriguezje96/my-ecommerce/blob/master/src/assets/img/productos/remera-death.jpg?raw=true',
+        stock: '20'
     },
     {
         id: 4,
@@ -27,6 +30,7 @@ export const Productos = [
         precio: '$3000',
         categoria: 'remeras',
         img: 'https://github.com/rodriguezje96/my-ecommerce/blob/master/src/assets/img/productos/remera-manga-larga-pantera.jpg?raw=true',
+        stock: '10'
     },
     {
         id: 5,
@@ -34,11 +38,13 @@ export const Productos = [
         precio: '$2500',
         categoria: 'shorts',
         img: 'https://github.com/rodriguezje96/my-ecommerce/blob/master/src/assets/img/productos/short-danzig.jpg?raw=true',
-    },    {
+        stock: '20'
+    }, {
         id: 6,
         nombre: 'Short Rammstein',
         precio: '$2500',
         categoria: 'shorts',
         img: 'https://github.com/rodriguezje96/my-ecommerce/blob/master/src/assets/img/productos/short-rammstein.jpg?raw=true',
+        stock: '20'
     }
 ];
