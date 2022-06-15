@@ -1,7 +1,3 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import {Link} from 'react-router-dom';
-
-
 export const Counter = ({ max, setContador, contador, handleAgregar }) => {
 
     const incrementar = () => {
@@ -26,7 +22,6 @@ export const Counter = ({ max, setContador, contador, handleAgregar }) => {
                 <button className="btn btn-dark col-1" onClick={decrementar}>-</button>
                 <hr />
                     <button className="btn btn-dark col-1" onClick={handleAgregar} >Agregar al carrito</button>
-                    <Link to="./components/Cart/Cart.js" className="btn btn-dark col-1">Ir al carrito</Link>
             </div>
 
         </div>
