@@ -15,23 +15,35 @@ import { Cart } from './components/Cart/Cart.js';
 function App() {
 
   const [cart, setCart] = useState([]);
-console.log(cart)
- 
-const addItem = (item) => {
-  setCart([...cart, item]);
-}
 
-const isInCart = (id) => {
-  return cart.some(item => item.id === id);
-}
 
-const totalPrice = () => {
-  return cart.reduce ((acc, prod) => acc += (prod?.precio * prod?.cantidad), 0);
-}
+  const addItem = (item) => {
+    setCart([...cart, item]);
+  }
+
+  const isInCart = (id) => {
+    return cart.some(item => item.id === id);
+  }
+
+  const totalPrice = () => {
+    return cart.reduce((acc, prod) => acc += (prod?.precio * prod?.cantidad), 0);
+  }
+
+  const totalQuantity = () => {
+    return cart.reduce((acc, prod) => acc += prod?.cantidad, 0);
+  }
+
+  const emptyCart = () => {
+    setCart( [] );
+  }
+
+  const removeItem = (id) => {
+    setCart(cart.filter(item => item.id !== id));
+  }
 
   return (
 
-    <CartContext.Provider value={{ cart, addItem, isInCart, totalPrice }} >
+    <CartContext.Provider value={{ cart, addItem, isInCart, totalPrice, totalQuantity, emptyCart, removeItem }} >
 
       <BrowserRouter>
         <div className="App">

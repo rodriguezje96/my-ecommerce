@@ -8,11 +8,8 @@ import { useParams } from 'react-router-dom';
 export const ItemListContainer = () => {
 
     const [items, setItems] = useState([])
-    //const Params = useParams();
     const { categoria } = useParams();
-    console.log(categoria);
-
-
+    const [loading, setLoading] = useState(true)
 
     const pedirDatos = () => {
 
@@ -24,21 +21,28 @@ export const ItemListContainer = () => {
     }
 
     useEffect(() => {
+        setLoading(true);
 
         pedirDatos()
             .then(res => {
                 if (!categoria) {
-                setItems(res); 
+                    setItems(res);
                 } else {
                     setItems(res.filter(item => item.categoria === categoria));
                 }
             })
             .catch(err => {
                 console.log('ERROR', err)
-            });
+            })
+            .finally(() => {
+                setLoading(false);
+            })
+            ;
     }, [categoria])
 
-
+    if (loading) {
+        return <div>Cargando...</div>
+    }
 
     return (
         <div className="row">

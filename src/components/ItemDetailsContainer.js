@@ -9,6 +9,8 @@ export const ItemDetailContainer = () => {
 
     const [item, setItem] = useState(null)
 
+    const [loading, setLoading] = useState(true)
+
     const pedirDatos = () => {
 
         return new Promise((resolve, reject) => {
@@ -19,27 +21,32 @@ export const ItemDetailContainer = () => {
     }
 
     const { itemId } = useParams();
-    console.log(itemId);
-    console.log(item);
-    
+
 
 
     useEffect(() => {
+        setLoading(true);
 
         pedirDatos()
             .then(res => {
                 setItem(res.find((item) => item.id === Number(itemId)));
             })
-        .catch(err => {
-            console.log('ERROR', err)
-        });
-}, [])
+            .catch(err => {
+                console.log('ERROR', err)
+            })
+            .finally(() => {
+                setLoading(false);
+            })
+            ;
+    }, [])
 
+    if (loading) {
+        return <div>Cargando...</div>
+    }
 
-
-return (
-    <div>
-        <ItemDetail item={item}></ItemDetail>
-    </div>
-)
+    return (
+        <div>
+            <ItemDetail item={item}></ItemDetail>
+        </div>
+    )
 }

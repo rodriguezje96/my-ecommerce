@@ -32,7 +32,7 @@ export const ItemDetail = ({ item }) => {
             </div>
             {
                 isInCart(item?.id) ?
-                    <Link to={'/Cart'} className="btn btn-dark">Ir al carrito</Link>
+                    <Link to={'/Cart'} className="btn btn-dark">Terminar mi compra</Link>
                     :
                     <Counter max={item?.stock}
                         contador={cantidad}

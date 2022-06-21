@@ -34,6 +34,18 @@ gap: 1%;
   flex-direction: column;
 }
 
+.widget {
+  display: flex;
+  flex-direction: column;
+  opacity: 1;
+}
+
+.widget-hidden {
+  visibility: none;
+  opacity: 0;
+}
+
+
 footer {
   background-color: rgb(0, 0, 0);
   padding: 1%;

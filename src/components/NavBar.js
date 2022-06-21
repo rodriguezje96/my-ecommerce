@@ -1,6 +1,7 @@
+import CartLogo from './CartLogo';
 import CartWidget from './CartWidget';
 import '../style.css';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const NavBar = () => {
@@ -8,7 +9,7 @@ const NavBar = () => {
 
         <nav className="navbar navbar-expand-lg bg-black">
             <div className="container-fluid">
-                <CartWidget></CartWidget>
+                <CartLogo></CartLogo>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
@@ -24,6 +25,7 @@ const NavBar = () => {
                         </li> <li class="nav-item">
                             <Link to="/Contacto" className="nav-link">Contacto</Link>
                         </li>
+                            <CartWidget></CartWidget>
                     </ul>
                 </div>
             </div>

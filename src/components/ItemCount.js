@@ -17,9 +17,9 @@ export const Counter = ({ max, setContador, contador, handleAgregar }) => {
         <div className="container">
             <h3>Unidades</h3>
             <div className="container contador">
-                <button className="btn btn-dark col-1 " onClick={incrementar}>+</button>
+                <button className={contador === max ? "btn btn-secondary col-1" : "btn btn-dark col-1 "} onClick={incrementar}>+</button>
                 <p className="">{contador}</p>
-                <button className="btn btn-dark col-1" onClick={decrementar}>-</button>
+                <button className={contador === 1 ? "btn btn-secondary col-1" : "btn btn-dark col-1 "} onClick={decrementar}>-</button>
                 <hr />
                     <button className="btn btn-dark col-1" onClick={handleAgregar} >Agregar al carrito</button>
             </div>
