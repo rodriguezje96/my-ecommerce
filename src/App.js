@@ -6,7 +6,7 @@ import { ItemDetailContainer } from './components/ItemDetailsContainer';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Error } from './components/Error/Error.js';
 import { Contacto } from './components/Contacto/Contacto.js';
-import { CartContext } from './components/CartContext.js';
+import { CartProvider } from './components/CartContext.js';
 import { useContext, useState } from 'react';
 import { Cart } from './components/Cart/Cart.js';
 
@@ -14,37 +14,10 @@ import { Cart } from './components/Cart/Cart.js';
 
 function App() {
 
-  const [cart, setCart] = useState([]);
 
-
-  const addItem = (item) => {
-    setCart([...cart, item]);
-  }
-
-  const isInCart = (id) => {
-    return cart.some(item => item.id === id);
-  }
-
-  const totalPrice = () => {
-    return cart.reduce((acc, prod) => acc += (prod?.precio * prod?.cantidad), 0);
-  }
-
-  const totalQuantity = () => {
-    return cart.reduce((acc, prod) => acc += prod?.cantidad, 0);
-  }
-
-  const emptyCart = () => {
-    setCart( [] );
-  }
-
-  const removeItem = (id) => {
-    setCart(cart.filter(item => item.id !== id));
-  }
 
   return (
-
-    <CartContext.Provider value={{ cart, addItem, isInCart, totalPrice, totalQuantity, emptyCart, removeItem }} >
-
+    <CartProvider>
       <BrowserRouter>
         <div className="App">
           <header className="App-header">
@@ -65,7 +38,7 @@ function App() {
         </div>
 
       </BrowserRouter>
-    </CartContext.Provider>
+    </CartProvider>
   );
 }
 

@@ -1,9 +1,9 @@
-import { Productos } from './productos.js'
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { ItemList } from './ItemList.js';
 import { useParams } from 'react-router-dom';
-
+import { colletion, getDocs } from 'firebase/firestone';
+import { db } from '../firebase/config'
 
 export const ItemListContainer = () => {
 
@@ -11,33 +11,17 @@ export const ItemListContainer = () => {
     const { categoria } = useParams();
     const [loading, setLoading] = useState(true)
 
-    const pedirDatos = () => {
-
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                resolve(Productos);
-            }, 3000)
-        })
-    }
 
     useEffect(() => {
         setLoading(true);
 
-        pedirDatos()
-            .then(res => {
-                if (!categoria) {
-                    setItems(res);
-                } else {
-                    setItems(res.filter(item => item.categoria === categoria));
-                }
+        const productosRef = colletion(db, 'productos')
+
+        getDocs(productosRef)
+            .then((resp) => {
+                console.log(resp.docs)
             })
-            .catch(err => {
-                console.log('ERROR', err)
-            })
-            .finally(() => {
-                setLoading(false);
-            })
-            ;
+
     }, [categoria])
 
     if (loading) {
