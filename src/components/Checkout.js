@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { CartContext } from './CartContext.js'
-import { Link } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import { collection, addDoc } from "firebase/firestore"
 import { db } from '../firebase/config.js';
 
@@ -64,12 +64,14 @@ export const Checkout = () => {
 
     if (cart.length === 0) {
         return (
-            <Link to="./"></Link>
+            <Navigate to="./"></Navigate>
         )
     }
     return (
         <div className="container">
-            <h2>Checkout</h2>
+
+            <h1>Esto es una prueba</h1>
+            {/*  <h2>Checkout</h2>
 
             <form onSubmit={handleSubmit}>
                 <input
@@ -97,7 +99,7 @@ export const Checkout = () => {
                 <button type="submit" className="btn btn-dark">Enviar</button>
             </form>
             <button onClick={emptyCart} className="btn btn-danger">Cancelar Compra</button>
-
+ */}
         </div>
     )
 }

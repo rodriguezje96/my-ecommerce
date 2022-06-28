@@ -37,7 +37,7 @@ export const Cart = () => {
             }
             <h4>Total: ${totalPrice()}</h4>
             <button className="btn btn-danger" onClick={emptyCart}>Vaciar Carrito</button>
-            <Link to="./Checkout" className="btn btn-dark">Finalizar Pedido</Link>
+            <Link to={'./Checkout'} className="btn btn-dark">Finalizar Pedido</Link>
         </div>
     )
 
