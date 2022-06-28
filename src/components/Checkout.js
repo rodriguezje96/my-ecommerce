@@ -6,7 +6,7 @@ import { db } from '../firebase/config.js';
 
 export const Checkout = () => {
 
-    const { cart, totalPrice, emptyCart } = CartContext();
+    const { cart, totalPrice, emptyCart } = CartContext;
 
     const [orderId, setOrderId] = useState(null)
     const [values, setValues] = useState({
@@ -62,7 +62,7 @@ export const Checkout = () => {
         )
     }
 
-    if (cart.length === 0) {
+    if (cart?.length === 0) {
         return (
             <Navigate to="./"></Navigate>
         )
@@ -70,8 +70,7 @@ export const Checkout = () => {
     return (
         <div className="container">
 
-            <h1>Esto es una prueba</h1>
-            {/*  <h2>Checkout</h2>
+             <h2>Checkout</h2>
 
             <form onSubmit={handleSubmit}>
                 <input
@@ -79,27 +78,30 @@ export const Checkout = () => {
                     name="nombre"
                     onChange={handleInputChange}
                     type={"text"}
-                    placeholder="Juan Perez">
+                    placeholder="Juan Perez"
+                    className="form-control my-2">
                 </input>
                 <input
                     value={values.email}
-                    name="nombre"
+                    name="email"
                     onChange={handleInputChange}
-                    type={"text"}
-                    placeholder="tumail@gmail.com">
+                    type={"email"}
+                    placeholder="tumail@gmail.com"
+                    className="form-control my-2">
                 </input>
                 <input
                     value={values.telefono}
-                    name="nombre"
+                    name="telefono"
                     onChange={handleInputChange}
                     type={"number"}
-                    placeholder="1122334455">
+                    placeholder="1122334455"
+                    className="form-control my-2">
                 </input>
 
-                <button type="submit" className="btn btn-dark">Enviar</button>
+                <button type="submit" className="btn btn-dark my-2">Enviar</button>
             </form>
             <button onClick={emptyCart} className="btn btn-danger">Cancelar Compra</button>
- */}
+
         </div>
     )
 }
