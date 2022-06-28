@@ -33,7 +33,7 @@ function App() {
             </Routes>
             <br />
             <footer>
-              José Rodríguez. Primera entrega de React.
+              José Rodríguez. Desafío Firebase II.
             </footer>
           </header>
         </div>

@@ -1,12 +1,11 @@
-import { useState } from "react"
+import { useState, useContext } from "react"
 import { CartContext } from './CartContext.js'
 import { Navigate } from "react-router-dom";
 import { collection, addDoc } from "firebase/firestore"
 import { db } from '../firebase/config.js';
 
 export const Checkout = () => {
-
-    const { cart, totalPrice, emptyCart } = CartContext;
+    const { cart, totalPrice, emptyCart } = useContext(CartContext);
 
     const [orderId, setOrderId] = useState(null)
     const [values, setValues] = useState({
@@ -14,6 +13,7 @@ export const Checkout = () => {
         email: '',
         telefono: ''
     })
+ 
 
     const handleInputChange = (e) => {
         setValues({
@@ -41,15 +41,15 @@ export const Checkout = () => {
 
         const orden = {
             buyer: values,
-            items: cart.map(({ id, cantidad, nombre, precio }) => ({ id, cantidad, nombre, precio })),
+            items: cart?.map(({ id, cantidad, nombre, precio }) => ({ id, cantidad, nombre, precio })),
             total: totalPrice()
         }
         const ordersRef = collection(db, "orders")
         addDoc(ordersRef, orden)
             .then((doc) => {
-                console.log(doc.id)
-
+                setOrderId(doc.id)
                 emptyCart()
+
             })
     }
 
@@ -70,7 +70,7 @@ export const Checkout = () => {
     return (
         <div className="container">
 
-             <h2>Checkout</h2>
+            <h2>Checkout</h2>
 
             <form onSubmit={handleSubmit}>
                 <input
@@ -98,7 +98,7 @@ export const Checkout = () => {
                     className="form-control my-2">
                 </input>
 
-                <button type="submit" className="btn btn-dark my-2">Enviar</button>
+                <button onClick={handleSubmit} type="submit" className="btn btn-dark my-2">Enviar</button>
             </form>
             <button onClick={emptyCart} className="btn btn-danger">Cancelar Compra</button>
 
