@@ -4,6 +4,7 @@ import { Navigate } from "react-router-dom";
 import { collection, addDoc } from "firebase/firestore"
 import { db } from '../firebase/config.js';
 
+
 export const Checkout = () => {
     const { cart, totalPrice, emptyCart } = useContext(CartContext);
 
@@ -13,7 +14,7 @@ export const Checkout = () => {
         email: '',
         telefono: ''
     })
- 
+
 
     const handleInputChange = (e) => {
         setValues({
@@ -39,69 +40,68 @@ export const Checkout = () => {
         }
 
 
-        const orden = {
-            buyer: values,
-            items: cart?.map(({ id, cantidad, nombre, precio }) => ({ id, cantidad, nombre, precio })),
-            total: totalPrice()
+            const orden = {
+                buyer: values,
+                items: cart?.map(({ id, cantidad, nombre, precio }) => ({ id, cantidad, nombre, precio })),
+                total: totalPrice()
+            }
+            const ordersRef = collection(db, "orders")
+            addDoc(ordersRef, orden)
+                .then((doc) => {
+                    setOrderId(doc.id)
+                    emptyCart()
+
+                })
         }
-        const ordersRef = collection(db, "orders")
-        addDoc(ordersRef, orden)
-            .then((doc) => {
-                setOrderId(doc.id)
-                emptyCart()
 
-            })
-    }
+        if (orderId) {
+            return (
+                <div>
+                    <h2>Gracias por su compra!</h2>
+                    <p>Su código de orden es: {orderId}</p>
+                </div>
+            )
+        }
 
-    if (orderId) {
+        if (cart?.length === 0) {
+            return (
+                <Navigate to="./"></Navigate>
+            )
+        }
         return (
-            <div>
-                <h2>Gracias por su compra!</h2>
-                <p>Su código de orden es: {orderId}</p>
+            <div className="container">
+
+                <h2>Checkout</h2>
+                <form onSubmit={handleSubmit}>
+                    <input
+                        value={values.nombre}
+                        name="nombre"
+                        onChange={handleInputChange}
+                        type={"text"}
+                        placeholder="Juan Perez"
+                        className="form-control my-2">
+                    </input>
+                    <input
+                        value={values.email}
+                        name="email"
+                        onChange={handleInputChange}
+                        type={"email"}
+                        placeholder="tumail@gmail.com"
+                        className="form-control my-2">
+                    </input>
+                    <input
+                        value={values.telefono}
+                        name="telefono"
+                        onChange={handleInputChange}
+                        type={"number"}
+                        placeholder="1122334455"
+                        className="form-control my-2">
+                    </input>
+
+                    <button onClick={handleSubmit} type="submit" className="btn btn-dark my-2">Enviar</button>
+                </form>
+                <button onClick={emptyCart} className="btn btn-danger">Cancelar Compra</button>
+
             </div>
         )
     }
-
-    if (cart?.length === 0) {
-        return (
-            <Navigate to="./"></Navigate>
-        )
-    }
-    return (
-        <div className="container">
-
-            <h2>Checkout</h2>
-
-            <form onSubmit={handleSubmit}>
-                <input
-                    value={values.nombre}
-                    name="nombre"
-                    onChange={handleInputChange}
-                    type={"text"}
-                    placeholder="Juan Perez"
-                    className="form-control my-2">
-                </input>
-                <input
-                    value={values.email}
-                    name="email"
-                    onChange={handleInputChange}
-                    type={"email"}
-                    placeholder="tumail@gmail.com"
-                    className="form-control my-2">
-                </input>
-                <input
-                    value={values.telefono}
-                    name="telefono"
-                    onChange={handleInputChange}
-                    type={"number"}
-                    placeholder="1122334455"
-                    className="form-control my-2">
-                </input>
-
-                <button onClick={handleSubmit} type="submit" className="btn btn-dark my-2">Enviar</button>
-            </form>
-            <button onClick={emptyCart} className="btn btn-danger">Cancelar Compra</button>
-
-        </div>
-    )
-}

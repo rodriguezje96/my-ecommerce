@@ -18,25 +18,28 @@ export const Cart = () => {
     }
 
     return (
-        <div>
+        <div className="container ticket">
             <h2>Tu Carrito</h2>
 
             {
                 cart.map((item) => {
                     return (
-                        <div key={item?.id}>
-                            <p>{item?.nombre}</p>
-                            <p>Cantidad: {item?.cantidad}</p>
-                            <p>Precio Total: {+item?.precio * item?.cantidad}</p>
-                            <button onClick={() => removeItem(item?.id)} className="btn btn-danger">Eliminar producto</button>
+                        <div>
+                            <div key={item?.id}>
+                                <p>{item?.nombre}</p>
+                                <p>Cantidad: {item?.cantidad}</p>
+                                <p>Precio Total: {+item?.precio * item?.cantidad}</p>
+                                <button onClick={() => removeItem(item?.id)} className="btn btn-danger">Eliminar producto</button>
+                            </div>
                         </div>
+
                     )
                 }
 
                 )
             }
             <h4>Total: ${totalPrice()}</h4>
-            <button className="btn btn-danger" onClick={emptyCart}>Vaciar Carrito</button>
+            <button className="btn btn-danger my-2 mx-2" onClick={emptyCart}>Vaciar Carrito</button>
             <Link to={'./Checkout'} className="btn btn-dark">Finalizar Pedido</Link>
         </div>
     )
