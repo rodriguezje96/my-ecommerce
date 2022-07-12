@@ -3,12 +3,29 @@ import { CartContext } from './CartContext.js'
 import { Navigate } from "react-router-dom";
 import { collection, addDoc } from "firebase/firestore"
 import { db } from '../firebase/config.js';
+import { Formik } from 'formik';
+import * as Yup from 'yup';
+
+const schema = Yup.object({
+    nombre: Yup.string()
+             .required('Este campo es obligatorio')
+             .min(4, 'El nombre es demasiado corto')
+             .max(30, 'Maximo 30 caracteres'),
+    email: Yup.string()
+            .required('Este campo es obligatorio')
+            .email('No parece un mail real'),
+    direccion: Yup.string()
+            .required('Este campo es obligatorio')
+            .min(4, 'La direccion es demasiado corta')
+            .max(30, 'Maximo 30 caracteres')       
+}).shape
 
 
 export const Checkout = () => {
     const { cart, totalPrice, emptyCart } = useContext(CartContext);
 
     const [orderId, setOrderId] = useState(null)
+
     const [values, setValues] = useState({
         nombre: '',
         email: '',
@@ -16,29 +33,9 @@ export const Checkout = () => {
     })
 
 
-    const handleInputChange = (e) => {
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value
-        })
-    }
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
 
-        if (values.nombre.length < 5) {
-            alert("Ingresa tu nombre completo")
-            return
-        }
-        if (values.email.length < 5) {
-            alert("El email es invalido")
-            return
-        }
-        if (values.telefono.length < 5) {
-            alert("Parece que faltan numeros")
-            return
-        }
-
+    const createOrder = async (values) => {
 
             const orden = {
                 buyer: values,
