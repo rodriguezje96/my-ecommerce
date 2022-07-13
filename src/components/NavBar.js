@@ -12,16 +12,16 @@ const NavBar = () => {
                 <CartLogo></CartLogo>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <Link to="/" className="nav-link">Home</Link>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <Link to="/Productos/remeras" className="nav-link">Remeras</Link>
                         </li>
-                        <li class="nav-item">
+                        <li className="nav-item">
                             <Link to="/Productos/hoodies" className="nav-link">Hoodies</Link>
-                        </li> <li class="nav-item">
-                            <Link to="/Productos/shorts" class="nav-link">Shorts</Link>
+                        </li> <li className="nav-item">
+                            <Link to="/Productos/shorts" className="nav-link">Shorts</Link>
                         </li> 
                             <CartWidget></CartWidget>
                     </ul>

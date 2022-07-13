@@ -32,7 +32,7 @@ function App() {
             </Routes>
             <br />
             <footer>
-              José Rodríguez. Desafío Firebase II.
+             <a href="https://www.linkedin.com/in/jerodz/">José Rodríguez</a> . Curso de React. Coderhouse 2022
             </footer>
           </header>
         </div>
