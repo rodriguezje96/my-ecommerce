@@ -13,7 +13,7 @@ export const Checkout = () => {
         email: '',
         telefono: ''
     })
- 
+
 
     const handleInputChange = (e) => {
         setValues({
@@ -55,9 +55,10 @@ export const Checkout = () => {
 
     if (orderId) {
         return (
-            <div>
+            <div className="orden-box">
                 <h2>Gracias por su compra!</h2>
                 <p>Su código de orden es: {orderId}</p>
+
             </div>
         )
     }
@@ -68,11 +69,9 @@ export const Checkout = () => {
         )
     }
     return (
-        <div className="container">
 
-            <h2>Checkout</h2>
-
-            <form onSubmit={handleSubmit}>
+        <div className="container form-checkout">
+            <form className="row my-2" onSubmit={handleSubmit}>
                 <input
                     value={values.nombre}
                     name="nombre"
@@ -98,9 +97,12 @@ export const Checkout = () => {
                     className="form-control my-2">
                 </input>
 
-                <button onClick={handleSubmit} type="submit" className="btn btn-dark my-2">Enviar</button>
+                <button onClick={handleSubmit} type="submit" className="btn btn-dark my-2 mx-auto col-3">Enviar</button>
+                <button onClick={emptyCart} className="btn btn-danger my-2 mx-auto col-3">Cancelar Compra</button>
+
+                <h5 className="form-checkout-title my-3">Ingresa tus datos para finalizar la compra</h5>
+
             </form>
-            <button onClick={emptyCart} className="btn btn-danger">Cancelar Compra</button>
 
         </div>
     )

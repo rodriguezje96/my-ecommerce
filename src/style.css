@@ -12,19 +12,19 @@ app {
 }
 
 a {
-  color: rgb(255, 255, 255)!important;
+  color: rgb(255, 255, 255) !important;
   font-size: 1.2rem;
 }
 
 a:hover {
-  color: rgb(93, 44, 133)!important;
+  color: rgb(93, 44, 133) !important;
   font-size: 1.4rem;
 }
 
 .contador {
-flex-direction: row;
-display: flex;
-gap: 1%;
+  flex-direction: row;
+  display: flex;
+  gap: 1%;
 }
 
 .card {
@@ -51,9 +51,40 @@ gap: 1%;
   flex-direction: column;
 }
 
+.cart-box {
+  padding: 10px 5px;
+  border-top: 1px solid;
+}
+
+.cart-titulo {
+  font-weight: bold;
+}
+
+.form-checkout {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.form-checkout-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.orden-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 0px 10px rgb(0, 0, 0, 0.2);
+  margin: 1%;
+  flex-direction: column;
+}
+
 footer {
   background-color: rgb(0, 0, 0);
   padding: 1%;
   text-align: center;
   color: rgb(255, 255, 255);
-} 
+  margin-bottom: 0;
+}

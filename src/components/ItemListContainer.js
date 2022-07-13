@@ -21,15 +21,15 @@ export const ItemListContainer = () => {
 
         getDocs(q)
             .then((resp) => {
-                const newItems = resp.docs.map ((doc) =>{
+                const newItems = resp.docs.map((doc) => {
                     return {
-                       id: doc.id,
+                        id: doc.id,
                         ...doc.data()
                     }
                 })
                 setItems(newItems)
             })
-            .finally (() => {
+            .finally(() => {
                 setLoading(false)
             })
 
@@ -41,9 +41,7 @@ export const ItemListContainer = () => {
 
     return (
         <div className="container">
-            <div className="">
             <ItemList items={items}></ItemList>
-            </div>
         </div>
     )
 
